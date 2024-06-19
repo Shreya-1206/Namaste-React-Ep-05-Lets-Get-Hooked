@@ -26,8 +26,9 @@
     padding: 10px 15px;
 }
 
-.search{
-    padding: 10px 8px;
+.filter-btn{
+    margin: 15px;
+    cursor: pointer;
 }
 
 .res-conatiner{
