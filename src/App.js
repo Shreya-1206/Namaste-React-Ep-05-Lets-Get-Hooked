@@ -1,24 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom/client";
-
-// layout components
-// 1. Header
-//   *img logo
-//   *nav-items
-// 2. body
-//   * search
-//   *  Reaturant conatainer
-//      - ResCard
-//        # img
-//        # res name 
-//        # cusines
-//        # delivery time
-//        # star rating
-// 3 . Footer
-//    * copyright
-//    * links
-//    * address
-//    * contact       
+import Header from "./components/Header";
+import Body from "./components/Body";
 
 const resObj = {
   "info": {
@@ -1692,74 +1675,11 @@ const resList = [
   }
 ];
 
-const Header=()  => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src="https://th.bing.com/th/id/OIP.klm69DJb5MssBNAU6X480QAAAA?rs=1&pid=ImgDetMain"/>
-      </div>
-      <div className="nav-items">
-        <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
-            <li>Cart</li>
-        </ul>
-      </div>
-    </div> 
-  )
-};
-
 // const styleCard = {
 //   backgroundColor :"#FEEFAD",
 // }
 
-const ReasturantCard = (props) => {
-  // console.log(props);
-  const {resData} = props;
-  const {
-    cloudinaryImageId,
-     name, cuisines, 
-     sla, 
-     deliveryTime, 
-     costForTwo,
-     avgRating} = resData?.info;
 
-  // console.log(resData.info.name);
-if(!resData){
-  return null;
-}
-  return (
-    <div className="res-card" >
-      <img 
-        className="res-logo"
-        alt ="res-logo"
-        src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + 
-        cloudinaryImageId}
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{sla.deliveryTime} mintutes</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{avgRating} stars</h4>
-    </div>
-  )
-}
-
-const Body =() => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-conatiner">
-        {
-          resList.map(resturant => (
-            <ReasturantCard key ={resturant.info.id} resData ={resturant}/>
-          ))
-        }
-      </div>
-    </div>
-  )
-}
 
 
 const AppLayout = () => {
@@ -1774,3 +1694,5 @@ const AppLayout = () => {
 
 const root = ReactDom.createRoot(document.getElementById('root'));
 root.render(<AppLayout />);
+
+
